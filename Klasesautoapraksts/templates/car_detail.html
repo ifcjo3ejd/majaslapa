@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% block content %} 
+  {% if car %} 
+    <h1>{{ car.razotaja_nosaukums }} {{ car.modelis }}</h1>
+    {% if car.attels_fails %}
+      <img src="{{ url_for('static', filename='images/' + car.attels_fails) }}" alt="{{ car.modelis }}" style="max-width: 500px; height: auto;">
+    {% else %}
+      <p>(Nav attēla)</p>
+    {% endif %}
+    <h2>Informācija</h2>
+    <p><strong>Ražotājs:</strong> 
+      <a href="{{ url_for('manufacturer_cars', manufacturer_id=car.razotajs_id) }}">
+        {{ car.razotaja_nosaukums }} 
+        {% if car.razotaja_logo %}
+          <img src="{{ url_for('static', filename='images/logos/' + car.razotaja_logo) }}" alt="{{ car.razotaja_nosaukums }} Logo" style="height: 20px; vertical-align: middle;">
+        {% endif %}
+      </a>
+    </p>
+    <p><strong>Modelis:</strong> {{ car.modelis }}</p>
+    <p><strong>Ražošanas gadi:</strong> {{ car.gads_no }} - {{ car.gads_lidz or '...' }}</p> 
+    <p>Apraksts</p>
+    <p><strong>{{car.apraksts}}<p>
+    <p>Dzinēja specifikācijas:</p>
+    <p>{{ car.dzineja_specifikacijas if car.dzineja_specifikacijas else 'Specifikācijas nav pieejamas.' }}</p>
+    {% if car.interesants_fakts %}
+      <p>Interesants fakts:</p>
+      <p>{{ car.interesants_fakts }}</p>
+    {% endif %}
+    {% if categories %}
+      <p>Kategorijas:</p>
+      <ul>
+        {% for category in categories %}
+          <li>{{ category.nosaukums }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <p><a href="{{ url_for('index') }}">Atpakaļ uz sarakstu</a></p>
+  {% else %}
+    <h1>Automašīna nav atrasta</h1>
+    <p>Meklētā automašīna netika atrasta datubāzē.</p>
+    <p><a href="{{ url_for('index') }}">Atpakaļ uz sarakstu</a></p>
+  {% endif %} 
+{% endblock %} 

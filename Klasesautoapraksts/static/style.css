@@ -1,0 +1,87 @@
+/* Piemērs pamata stiliem */
+body {
+  font-family: 'Open Sans', sans-serif; /* Izmanto Google Fontu */
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #f8f8f8; /* Gaiši pelēks fons */
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #2b317d; /* Tumša navigācija */
+  padding: 10px 20px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s ease; /* Pievieno pāreju hover efektam */
+}
+
+nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+  max-width: 1100px; /* Ierobežo platumu lielos ekrānos */
+  margin: 20px auto; /* Centrē saturu */
+  background-color: #0c2767; /* Balts fons saturam */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Neliela ēna */
+  border-radius: 5px; /* Noapaļoti stūri */
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif; /* Cits fonts virsrakstiem */
+  color: #0c2767;
+}
+
+/* Piemērs mašīnu saraksta kāršu stilam */
+.car-list {
+  display: grid; /* Izmanto CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsīvs režģis */
+  gap: 20px; /* Atstarpes starp kartītēm */
+}
+
+.car-item {
+  border: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+   border-radius: 4px;
+   transition: box-shadow 0.3s ease;
+}
+
+.car-item:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15); /* Ēna hover efektam */
+}
+
+.car-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #ffffff;
+  border-top: 1px solid #eee;
+}
+
+/* Stili mašīnas detaļu lapai */
+.car-detail-image {
+  max-width: 600px; /* Lielāks attēls detaļu lapā */
+  margin: 0 auto 20px auto; /* Centrēts attēls */
+  display: block;
+}
+
+.car-detail-info p strong {
+    display: inline-block;
+    min-width: 100px; /* Nedaudz formatē info bloku */
+}

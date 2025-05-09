@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ page_title }}</h1>
+  {% if manufacturers %}
+    <ul>
+      {% for manufacturer in manufacturers %}
+        <li>
+          <a href="{{ url_for('manufacturer_cars', manufacturer_id=manufacturer.id) }}">
+            {% if manufacturer.logo_attels %}
+              <img src="{{ url_for('static', filename='images/logos/' + manufacturer.logo_attels) }}" alt="{{ manufacturer.nosaukums }} Logo" style="height: 25px; vertical-align: middle; margin-right: 5px;">
+            {% endif %}
+            {{ manufacturer.nosaukums }}
+          </a> 
+          ({{ manufacturer.valsts if manufacturer.valsts else 'Valsts nav norādīta' }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Neviens ražotājs nav atrasts.</p>
+  {% endif %}
+{% endblock %}

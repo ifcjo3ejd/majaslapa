@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title }} - Klasesbiedru auto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <nav>
+      |<a href="{{ url_for('index') }}">Sākums</a> |
+      <a href="{{ url_for('manufacturers') }}">Ražotāji</a>|
+      <a href="{{ url_for('index') }}">Nedarbi un šmuces ar mašīnām</a> |
+    </nav>
+    <hr>
+    <main>
+      {% block content %}{% endblock %}  
+    </main>
+    <hr>
+    <footer>
+      <p>Roberts Vītols</p>
+    </footer>
+  </body>
+</html>

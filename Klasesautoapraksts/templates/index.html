@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ page_title }}</h1>
+  <div class="car-list">
+    {% if cars %}
+      {% for car in cars %}
+        <div class="car-item">
+          <h2><a href="{{ url_for('car_detail', car_id=car.id) }}">{{ car.razotaja_nosaukums }} {{ car.modelis }}</a></h2>
+          <p>Ražošanas gadi: {{ car.gads_no }} - {{ car.gads_lidz or '...' }}</p>
+          {% if car.attels_fails %}
+            <img src="{{ url_for('static', filename='images/' + car.attels_fails) }}" alt="{{ car.modelis }}" width="200">
+          {% else %}
+            <p>(Nav attēla)</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Neviena automašīna nav atrasta.</p> 
+    {% endif %}
+  </div>
+{% endblock %}
